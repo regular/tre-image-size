@@ -10,7 +10,7 @@ const formats = {
   //gif: require('image-size/lib/types/gif'),
   //icns: require('image-size/lib/types/icns'),
   //ico: require('image-size/lib/types/ico'),
-  jpg: require('image-size/lib/types/jpg'),
+  jpeg: require('image-size/lib/types/jpg'),
   png: require('image-size/lib/types/png'),
   //psd: require('image-size/lib/types/psd'),
   svg: require('image-size/lib/types/svg'),
@@ -18,7 +18,7 @@ const formats = {
   webp: require('image-size/lib/types/webp')
 }
 
-formats.jpg.bufferSizeForDetection = 2
+formats.jpeg.bufferSizeForDetection = 2
 formats.png.bufferSizeForDetection = 32
 formats.svg.bufferSizeForDetection = 5
 formats.webp.bufferSizeForDetection = 15 
@@ -51,20 +51,22 @@ module.exports = function(onMeta, opts) {
           }
         }
       }
-      if (format) {
-        try {
-          meta = formats[format].calculate(bl)
-          debug('detected file meta %o', meta)
-          bl = null
-        } catch(e) {
-          debug('%s image size detaction failed %s (%d btes buffered)', format, e.message, bl.length)
-        }
-        if (meta) onMeta(Object.assign({format}, meta))
-        return
-      }
-      if (bl.length > maxBufferSize) {
+    }
+    if (format) {
+      try {
+        meta = formats[format].calculate(bl)
+        meta.format = formats[format].mime || format
+        debug('detected file meta %o', meta)
         bl = null
+      } catch(e) {
+        debug('%s image size detaction failed %s (%d bytes buffered)', format, e.message, bl.length)
       }
+      if (meta) onMeta(Object.assign({format}, meta))
+      return
+    }
+    if (bl.length > maxBufferSize) {
+      debug('giving up')
+      bl = null
     }
   })
 }
