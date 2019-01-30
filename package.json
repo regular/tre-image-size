@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/regular/tre-image-size.git"
   },
-  "keywords": [],
+  "keywords": ["tre", "imagesize", "image-size", "pull-stream"],
   "author": "Jan Bölsche <jan@lagomorph.de> (https://regular.codes/)",
   "license": "MIT",
   "bugs": {
