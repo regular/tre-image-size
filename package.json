@@ -1,0 +1,30 @@
+{
+  "name": "tre-image-size",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regular/tre-image-size.git"
+  },
+  "keywords": [],
+  "author": "Jan Bölsche <jan@lagomorph.de> (https://regular.codes/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/regular/tre-image-size/issues"
+  },
+  "homepage": "https://github.com/regular/tre-image-size#readme",
+  "dependencies": {
+    "bl": "^2.1.2",
+    "debug": "^4.1.1",
+    "image-size": "^0.7.1",
+    "pull-stream": "^3.6.9"
+  },
+  "devDependencies": {
+    "pull-file": "^1.1.0",
+    "tape": "^4.9.2"
+  }
+}
