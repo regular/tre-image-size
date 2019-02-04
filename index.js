@@ -1,6 +1,6 @@
 const pull = require('pull-stream')
 const BufferList = require('bl')
-const debug = require('debug')('tre-file-size')
+const debug = require('debug')('tre-image-size')
 
 // Note: it's written like this, so it can be browserified
 const formats = {
@@ -21,6 +21,7 @@ const formats = {
 formats.jpeg.bufferSizeForDetection = 2
 formats.png.bufferSizeForDetection = 32
 formats.svg.bufferSizeForDetection = 5
+formats.svg.mime = 'svg+xml'
 formats.webp.bufferSizeForDetection = 15 
 
 module.exports = function(onMeta, opts) {

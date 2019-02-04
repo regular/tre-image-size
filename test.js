@@ -25,7 +25,7 @@ test('beaver.jpg', t => {
   pull(
     file('fixtures/beaver.jpg'),
     detect(meta => {
-      t.equal(meta.format, 'jpg')
+      t.equal(meta.format, 'jpeg')
       t.equal(meta.width, 320)
       t.equal(meta.height, 212)
     }),
@@ -40,7 +40,7 @@ test('exif.jpeg', t => {
   pull(
     file('fixtures/exif.jpeg'),
     detect(meta => {
-      t.equal(meta.format, 'jpg')
+      t.equal(meta.format, 'jpeg')
       t.equal(meta.width, 2048)
       t.equal(meta.height, 1536)
     }),
@@ -55,7 +55,7 @@ test('ball-triagle.svg', t => {
   pull(
     file('fixtures/ball-triangle.svg'),
     detect(meta => {
-      t.equal(meta.format, 'svg')
+      t.equal(meta.format, 'svg+xml')
       t.equal(meta.width, 57)
       t.equal(meta.height, 57)
     }),
